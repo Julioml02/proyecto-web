@@ -5,7 +5,6 @@ import { ErrorResponse, getCarts, GetCartResponse } from '@/lib/handlers'
 //PRACTICE 2
 import { getSession } from '@/lib/auth'
 
-
 //GET
 export async function GET(
   request: NextRequest,
@@ -17,9 +16,10 @@ export async function GET(
 ): Promise<NextResponse<GetCartResponse> | NextResponse<ErrorResponse>> {
   
   //PRACTICE 2 
+  //Para ver el carrito del usuario hay que estar autorizado y autenticado
   //Authentication
-  const session = await getSession()
-  if (!session?.userId) {
+  const session = await getSession()  //Comprobamos que se inicia sesión
+  if (!session?.userId) { 
     return NextResponse.json(
       {
         error: 'NOT_AUTHENTICATED',
@@ -43,7 +43,7 @@ export async function GET(
 
   //PRACTICE 2
   //Authorization
-  if (session.userId.toString() !== params.userId) {
+  if (session.userId.toString() !== params.userId) {  //Comparamos que el usuario autenticado tiene permisos
     return NextResponse.json(
       {
         error: 'NOT_AUTHORIZED',

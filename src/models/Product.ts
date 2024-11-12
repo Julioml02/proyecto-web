@@ -24,7 +24,7 @@ const UserSchema = new Schema<Product>({
   },
 
   price: {
-    type: String
+    type: Number
   }
 });
 

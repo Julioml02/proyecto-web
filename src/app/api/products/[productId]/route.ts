@@ -2,6 +2,10 @@ import { Types } from 'mongoose'
 import { NextRequest, NextResponse } from 'next/server'
 import { ErrorResponse, getProduct, GetProductResponse } from '@/lib/handlers'
 
+
+//PRACTICA 2
+//Esto es informacion publica, por lo que no es necesario hacer nada
+
 export async function GET(
   request: NextRequest,
   {

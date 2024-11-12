@@ -485,13 +485,14 @@ export async function createOrder(
 }
 
   // PRACTICE 2
+  //Solo se de debe aplicar la autorizacion y autenticacion donde no se muestren datos de un usuario
   export interface CheckCredentialsResponse {
     _id: Types.ObjectId
   }
   
   export async function checkCredentials(
-    email: string,
-    password: string
+    email: string,  //email of the user who's trying to log in
+    password: string //user password
   ): Promise<CheckCredentialsResponse | null> {
   
     // Implement this...
@@ -499,12 +500,15 @@ export async function createOrder(
   
         const user = await Users.findOne({ email });
 
+        //We have to make sure that both passwords are the same
+        //bycript compare and protects the encripted password in the db 
         if (user === null || !(await bcrypt.compare(password, user.password))){
           return null
         }
       
-        return { _id: user._id };
+        return { _id: user._id }; //if the user credentials are correct, we'll get the user id
 
+        
 
         /////////////////OTRA FORMA///////////////////
 

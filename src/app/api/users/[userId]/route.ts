@@ -17,6 +17,7 @@ export async function GET(
 ): Promise<NextResponse<GetUserResponse> | NextResponse<ErrorResponse>> {
 
 //PRACTICE 2 
+//Solo el propio usuario podria acceder a su propia información
 //Authentication
 const session = await getSession()
 if (!session?.userId) {

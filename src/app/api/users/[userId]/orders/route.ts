@@ -18,6 +18,7 @@ export async function GET(
 ): Promise<NextResponse<GetOrderResponse> | NextResponse<ErrorResponse>> {
   
   //PRACTICE 2 
+  //Para crear un pedido hay que estar autenticado (para crear pedido) y autorizado (para crear su pedido)
   //Authentication
   const session = await getSession()
   if (!session?.userId) {
