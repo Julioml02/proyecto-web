@@ -169,6 +169,6 @@ export async function POST
   }
   
   const headers = new Headers();
-  headers.append('Location', `/api/users/${orderId._id}`);
+  headers.append('Location', `/api/users/${params.userId}/orders/${orderId._id}`);
   return NextResponse.json({ _id: orderId._id }, { status: 201, headers: headers });
 }

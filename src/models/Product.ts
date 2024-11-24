@@ -6,7 +6,7 @@ export interface Product {
   name: string;
   description: string;
   img?: string;
-  price?: number;
+  price: number;
 }
 
 const UserSchema = new Schema<Product>({
@@ -24,7 +24,8 @@ const UserSchema = new Schema<Product>({
   },
 
   price: {
-    type: Number
+    type: Number,
+    required: true,
   }
 });
 

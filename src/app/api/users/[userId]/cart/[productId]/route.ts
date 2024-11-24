@@ -104,6 +104,21 @@ export async function DELETE
   }
 ): Promise<NextResponse<DeleteCartResponse> | NextResponse<ErrorResponse>> {
 
+
+    //PRACTICE 2 
+  //Authentication
+  const session = await getSession()
+  if (!session?.userId) {
+    return NextResponse.json(
+      {
+        error: 'NOT_AUTHENTICATED',
+        message: 'Authentication required.',
+      },
+      { status: 401 }
+    )
+  }
+  //---------
+
   if (!Types.ObjectId.isValid(params.userId) || !Types.ObjectId.isValid(params.productId)) 
   {
     return NextResponse.json({
@@ -111,7 +126,19 @@ export async function DELETE
       message: 'Invalid user ID or product.',
     }, { status: 400 });
   }
-
+    //PRACTICE 2
+    //Authorization
+    if (session.userId.toString() !== params.userId) {
+      return NextResponse.json(
+        {
+          error: 'NOT_AUTHORIZED',
+          message: 'Unauthorized access.',
+        },
+        { status: 403 }
+      )
+    }
+    // ----------
+    
   const cartItems = await deleteCartItem(params.userId, params.productId);
 
   if (cartItems === null) 

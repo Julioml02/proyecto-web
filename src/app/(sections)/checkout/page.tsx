@@ -88,8 +88,8 @@ export default async function Checkout() {
             <input
               type='text'
               name='address'
-              placeholder='123 Main St, City, Country'
-              defaultValue={userData.address} // Utilizamos el valor del usuario desde getUser
+              // placeholder='123 Main St, City, Country'
+              // defaultValue={userData.address} // Utilizamos el valor del usuario desde getUser
               className='w-full mt-1 rounded-md border-gray-300 shadow-sm'
               required
             />
@@ -99,8 +99,8 @@ export default async function Checkout() {
             <input
               type='text'
               name='cardHolder'
-              placeholder='John Doe'
-              defaultValue={`${userData.name} ${userData.surname}`} // Nombre completo del usuario
+              // placeholder='John Doe'
+              // defaultValue={`${userData.name} ${userData.surname}`} // Nombre completo del usuario
               className='w-full mt-1 rounded-md border-gray-300 shadow-sm'
               required
             />
@@ -110,8 +110,8 @@ export default async function Checkout() {
             <input
               type='text'
               name='cardNumber'
-              placeholder='0000 1111 2222 3333'
-              defaultValue='0000111222333344' // Número de tarjeta de ejemplo
+              // placeholder='0000 1111 2222 3333'
+              // defaultValue='0000111222333344' // Número de tarjeta de ejemplo
               className='w-full mt-1 rounded-md border-gray-300 shadow-sm'
               required
             />
