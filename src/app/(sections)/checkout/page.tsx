@@ -43,7 +43,6 @@ export default async function Checkout() {
       <h3 className='pb-4 text-3xl font-bold text-gray-900'>Checkout</h3>
 
       <div className='w-full max-w-4xl'>
-        {/* Tabla de productos */}
         <div className="overflow-x-auto rounded-lg border border-gray-300">
           <table className="w-full text-sm text-left text-gray-500">
             <thead className="bg-gray-100 text-xs uppercase text-gray-700">
@@ -81,7 +80,6 @@ export default async function Checkout() {
           </table>
         </div>
 
-        {/* Formulario de dirección de envío y pago */}
         <form className='mt-6 space-y-4'>
           <div>
             <label className='block text-gray-700'>Shipping address</label>
